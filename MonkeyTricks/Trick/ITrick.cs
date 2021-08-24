@@ -1,5 +1,4 @@
-﻿
-namespace MonkeyTricks.TrickModel
+﻿namespace MonkeyTricks.TrickModel
 {
     public interface ITrick
     {

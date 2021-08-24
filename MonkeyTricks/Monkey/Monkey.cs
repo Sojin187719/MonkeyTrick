@@ -2,8 +2,6 @@
 using MonkeyTricks.TrickModel;
 using System;
 
-
-
 namespace MonkeyTricks.MonkeyModel
 {
     public class Monkey : Observable
@@ -11,7 +9,6 @@ namespace MonkeyTricks.MonkeyModel
         public static readonly int MINIMUM_OF_TRICKS_IN_LIST = 0;
         public string Name { get; set; }
         public TrickList Tricks { get; set; }
-
 
         public Monkey(string name)
         {
@@ -21,18 +18,27 @@ namespace MonkeyTricks.MonkeyModel
 
         public void ExecuteOrder()
         {
-            CheckIfTrickListIsEmpty();
+            try
+            {
+                CheckIfTrickListIsEmpty();
+            }
+            catch (TrickListEmptyException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             foreach (ITrick trick in Tricks.GetTricks())
             {
                 Console.WriteLine("Le singe " + this.Name + " réalise " + trick.ToString());
                 Notify(this, trick);
             }
         }
+
         public void CheckIfTrickListIsEmpty()
         {
             if (Tricks.GetTricks().Count <= MINIMUM_OF_TRICKS_IN_LIST)
                 throw new TrickListEmptyException(Name);
         }
+
         public override string ToString()
         {
             return Name;

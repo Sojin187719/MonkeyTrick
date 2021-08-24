@@ -1,6 +1,5 @@
 ﻿using MonkeyTricks.TrickModel;
 
-
 namespace MonkeyTricks.Tricks
 {
     public class MusicalTrick : ITrick
@@ -11,6 +10,7 @@ namespace MonkeyTricks.Tricks
         {
             Name = name;
         }
+
         public override string ToString()
         {
             return "le tour de musique " + "'" + this.Name + "'";
