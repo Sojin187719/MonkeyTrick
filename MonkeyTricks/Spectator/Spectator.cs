@@ -29,11 +29,19 @@ namespace MonkeyTricks.SpectatorModel
         }
         public void Applaude(Monkey observable, ITrick trickInProgress)
         {
-            Console.WriteLine(Name + " applaudit pendant " + trickInProgress.ToString() + " de" + observable.ToString());
+            Console.WriteLine(Name + " applaudit pendant " 
+                + trickInProgress.ToString() + " de " 
+                + observable.ToString() + "\n");
         }
         public void Whistle(Monkey observable, ITrick trickInProgress)
         {
-            Console.WriteLine(Name + " siffle pendant " + trickInProgress.ToString() + " de" + observable.ToString());
+            Console.WriteLine(Name + " siffle pendant " 
+                + trickInProgress.ToString() + " de " 
+                + observable.ToString() + "\n");
+        }
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

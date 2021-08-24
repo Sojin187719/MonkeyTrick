@@ -3,7 +3,7 @@
 
 namespace MonkeyTricks.Tricks
 {
-    class MusicalTrick : ITrick
+    public class MusicalTrick : ITrick
     {
         public string Name { get; set; }
 
@@ -13,7 +13,7 @@ namespace MonkeyTricks.Tricks
         }
         public override string ToString()
         {
-            return "le tour d'acrobatie " + "'" + this.Name + "'";
+            return "le tour de musique " + "'" + this.Name + "'";
         }
     }
 }

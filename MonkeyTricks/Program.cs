@@ -3,6 +3,7 @@ using MonkeyTricks.MonkeyModel;
 using MonkeyTricks.TamerModel;
 using MonkeyTricks.SpectatorModel;
 using MonkeyTricks.TrickModel;
+using System;
 
 namespace MonkeyTricks
 {
@@ -16,8 +17,8 @@ namespace MonkeyTricks
             ITrick pirouette = new AcrobaticTrick("marcher sur les mainns");
 
 
-            Monkey monkeyOne = new Monkey("Ronnnie");
-            Monkey monkeyTwo = new Monkey("Radke");
+            Monkey monkeyOne = new Monkey("Singe 1");
+            Monkey monkeyTwo = new Monkey("Singe 2");
 
             monkeyOne.Tricks.AddTrick(playMetallica);
             monkeyOne.Tricks.AddTrick(salto);
@@ -27,9 +28,12 @@ namespace MonkeyTricks
             Spectator spectator = new Spectator("Johny Cash");
             Tamer tamerOne = new Tamer("Dresseur 1", monkeyOne);
             Tamer tamerTwo = new Tamer("Dresseur 2", monkeyTwo);
-            
+
+            Console.WriteLine(spectator.ToString() + " croise deux dresseurs de singes et s'arrête pour regarder le spectacle.\n");
             monkeyOne.Attach(spectator);
+            monkeyTwo.Attach(spectator);
             tamerOne.ChargeToDoTricks();
+            tamerTwo.ChargeToDoTricks();
         }
     }
 }

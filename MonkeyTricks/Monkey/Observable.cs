@@ -1,4 +1,5 @@
-﻿using MonkeyTricks.SpectatorModel;
+﻿using MonkeyTricks.Exceptions;
+using MonkeyTricks.SpectatorModel;
 using MonkeyTricks.TrickModel;
 using System.Collections.Generic;
 
@@ -14,8 +15,13 @@ namespace MonkeyTricks.MonkeyModel
 
         public void Attach(Spectator spectator)
         {
-            if (spectators.Contains(spectator)) return;
+            CheckIfSpectatorExistsInList(spectator);
             spectators.Add(spectator);
+        }
+        public void CheckIfSpectatorExistsInList(Spectator spectator)
+        {
+            if (spectators.Contains(spectator))
+                throw new SpectatorAlreadyInList(spectator.Name);
         }
         public void Detach(Spectator spectator)
         {
