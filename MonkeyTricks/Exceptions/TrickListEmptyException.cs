@@ -3,7 +3,7 @@
 
 namespace MonkeyTricks.Exceptions
 {
-    class TrickListEmptyException : Exception
+    public class TrickListEmptyException : Exception
     {
         public TrickListEmptyException() {
             

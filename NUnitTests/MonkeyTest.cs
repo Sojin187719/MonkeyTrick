@@ -1,20 +1,11 @@
 using MonkeyTricks.MonkeyModel;
-using MonkeyTricks.TrickModel;
-using MonkeyTricks.Tricks;
+using MonkeyTricks.Exceptions;
 using NUnit.Framework;
-using System;
 
 namespace NUnitTests
 {
     public class MonkeyTest
     {
-
-        [SetUp]
-        public void Setup()
-        {
-
-        }
-
         [Test]
         public void ToString_ReturnsMonkeyName()
         {
@@ -22,13 +13,11 @@ namespace NUnitTests
             Assert.AreEqual(newMonkey.Name, "John");
         }
         [Test]
-        public void ExecuteOrder_WriteInConsole()
+        public void CheckIfTrickListIsEmpty_ExceptionExpected()
         {
-            var currentConsoleOut = Console.Out;
-            Monkey testMonkey = new Monkey("Singe test");
-            testMonkey.Tricks.AddTrick(new MusicalTrick("Nothing else matters"));
-            testMonkey.ExecuteOrder();
-            Assert.AreEqual(currentConsoleOut.ToString(), "Le singe Singe test réalise le tour musical 'Nothing else matters'");
+            Monkey newMonkey = new Monkey("John");
+            Assert.Throws<TrickListEmptyException>(() => newMonkey.CheckIfTrickListIsEmpty());
         }
+
     }
 }

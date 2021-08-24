@@ -23,10 +23,7 @@ namespace MonkeyTricks.MonkeyModel
             if (spectators.Contains(spectator))
                 throw new SpectatorAlreadyInList(spectator.Name);
         }
-        public void Detach(Spectator spectator)
-        {
-            spectators.Remove(spectator);
-        }
+        public void Detach(Spectator spectator) => spectators.Remove(spectator);
         public void Notify(Monkey observable, ITrick trickInProgress)
         {
             foreach(Spectator spectator in spectators)

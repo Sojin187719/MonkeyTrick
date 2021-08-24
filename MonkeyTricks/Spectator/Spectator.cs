@@ -14,10 +14,7 @@ namespace MonkeyTricks.SpectatorModel
             Name = name;
         }
 
-        public void Update(Monkey observable, ITrick trickInprogress)
-        {
-            ReactToTrick(observable, trickInprogress);
-        }
+        public void Update(Monkey observable, ITrick trickInprogress) => ReactToTrick(observable, trickInprogress);
         public void ReactToTrick(Monkey observable, ITrick trickInProgress)
         {
             if (trickInProgress is MusicalTrick)
